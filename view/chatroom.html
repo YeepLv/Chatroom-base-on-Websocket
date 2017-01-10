@@ -8,13 +8,15 @@
                 </div>
                 <div class="panel-body">
                     <div style="min-height: 400px">
-
+                        <ul id="chatPanel"> 
+                            <li v-for="msg in messageList" v-text="msg.text"></li>
+                        </ul>
                     </div>
                     <form class="" action="">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="input something" id="inputFrame">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default" type="button">send</button>
+                                <button class="btn btn-default" type="button" id="sendbtn">send</button>
                             </span>
                        </div>
                        
@@ -29,11 +31,14 @@
                 </div>
                 <div class="panel-body">
                     <div style="min-height: 400px">
-
+                        <ul id="userPanel">
+                            <li v-for="user in userList" v-text="user.text"></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script src="view/chatroom.js"></script>
 {% endblock %}

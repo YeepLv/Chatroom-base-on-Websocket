@@ -17,6 +17,14 @@ function staticFiles(){
                 ctx.response.body = '404 not found';
             }
             
+        }else if(rpath.startsWith('/view')){
+            let filepath = path.join(__dirname,rpath);
+            if(fs.existsSync(filepath)){
+                ctx.response.type = mime.lookup(filepath);
+                ctx.response.body = fs.readFileSync(filepath);
+            }else{
+                ctx.response.body = '404 not found';
+            }
         }else{
             await next();
         }
